@@ -81,6 +81,9 @@ public class MongoSchemaFactory extends AbstractSchemaFactory {
       if (!DATABASES.equals(key)) {
         throw new UnsupportedOperationException();
       }
+      if (plugin.getDatabase() != null) {
+        return Collections.singletonList(plugin.getDatabase());
+      }
       try {
         List<String> dbNames = new ArrayList<>();
         plugin.getClient().listDatabaseNames().into(dbNames);

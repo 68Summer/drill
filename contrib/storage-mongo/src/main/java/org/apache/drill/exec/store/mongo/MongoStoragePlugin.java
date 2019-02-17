@@ -71,6 +71,10 @@ public class MongoStoragePlugin extends AbstractStoragePlugin {
     this.schemaFactory = new MongoSchemaFactory(this, name);
   }
 
+  public String getDatabase() {
+    return clientURI.getDatabase();
+  }
+
   @Override
   public MongoStoragePluginConfig getConfig() {
     return mongoConfig;
